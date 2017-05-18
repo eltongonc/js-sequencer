@@ -6,7 +6,7 @@ var routes = require('./routes/index');
 
 var app = express();
 
-var port =  process.env.PORT || 3000;
+var port =  process.env.PORT || 5000;
 var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';

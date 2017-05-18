@@ -1,11 +1,24 @@
+/**************
+** Instruments
+***************/
+// list of all the instruments and their names. !!ATTENTION: name = html id
+var allInstruments = [
+    {id: "crash", src:"/sounds/Perc/Crash Future.wav"},
+    {id: "hiHat", src:"/sounds/Hat/Hats14.wav"},
+    {id: "snare", src:"/sounds/Snare/Snare04.wav"},
+    {id: "rightTom", src:"/sounds/Claps/Claps09.wav"},
+    {id: "leftTom", src:"/sounds/Claps/Claps09.wav"},
+    {id: "floorTom", src:"/sounds/Claps/Claps09.wav"},
+    {id: "kick", src:"/sounds/Kick/Kick14.wav"}
+];
 
-
-
+// whenever you click on a label make it selected;
 window.addEventListener('click', function(e){
     if (e.target.localName === "label" ) {
         e.target.classList.toggle('selected');
     }
 })
+
 /*********************
 ** Metronome
 **********************/
@@ -63,30 +76,34 @@ var rows = document.getElementsByClassName('row');
 var labels = document.querySelectorAll('label');
 // Beat starts at 1 because 0 is the img for each row
 var beat = 1;
-// Sequencer
+
+// set the names of the instruments to the labels
+for (var i = 0; i < rows.length; i++) {
+    console.log(rows[i]);
+    rows[i].querySelector('.label').innerHTML = allInstruments[i].id;
+}
+
+
 function metronome () {
     for (var i = 0; i < labels.length; i++) {
         labels[i].classList.remove('active');
     }
-    var currentRow = document.querySelectorAll('label:nth-of-type('+beat+')');
+    var currentColumn = document.querySelectorAll('label:nth-of-type('+beat+')');
     // Do this function for each .row
-    for (var i = 0; i < currentRow.length; i++) {
-        currentRow[i].classList.add('active');
+    for (var i = 0; i < currentColumn.length; i++) {
+        currentColumn[i].classList.add('active');
+        // for every checkbox that is checked play the corresponding Audio
+        if (currentColumn[i].children[0].checked) {
+            var audio = new Audio(allInstruments[i].src);
+            audio.play();
+        }
+
     }
-        // Select the child element at the "beat" index
-        // If the current input is checked do some stuff!
-        // if (current.find('input').is(":checked")) {
-        //   targetDrum = (current.parent().attr('data-target-drum'));
-        //         // If there a function that shares the same name as the data attribue, do it!
-        //         fn = window[targetDrum];
-        //         if (typeof fn === "function") {
-        //             fn();
-        //         }
-        // }
+
     // If we get to the last child, start over
-  if ( beat < (rows[0].children.length - 1) ) {
-    ++beat;
-  } else {
-    beat = 1;
-  }
+    if ( beat < (rows[0].children.length - 2) ) {
+        ++beat;
+    } else {
+        beat = 1;
+    }
 }
