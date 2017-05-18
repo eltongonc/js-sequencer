@@ -1,3 +1,9 @@
+/*******************
+** Feature detection
+********************/
+if ("Audio" in window) {
+    console.log("Audio supported");
+}
 /**************
 ** Instruments
 ***************/
@@ -70,7 +76,6 @@ function updateTempo(e){
     }
 }
 
-
 // Sequencer varibles
 var rows = document.getElementsByClassName('row');
 var labels = document.querySelectorAll('label');
@@ -79,29 +84,25 @@ var beat = 1;
 
 // set the names of the instruments to the labels
 for (var i = 0; i < rows.length; i++) {
-    console.log(rows[i]);
     rows[i].querySelector('.label').innerHTML = allInstruments[i].id;
 }
 
 
 function metronome () {
+    // this is a column of the current beat
+    var currentColumn = document.querySelectorAll('label:nth-of-type('+beat+')');
     for (var i = 0; i < labels.length; i++) {
         labels[i].classList.remove('active');
     }
-    var currentColumn = document.querySelectorAll('label:nth-of-type('+beat+')');
-    // Do this function for each .row
     for (var i = 0; i < currentColumn.length; i++) {
         currentColumn[i].classList.add('active');
         // for every checkbox that is checked play the corresponding Audio
         if (currentColumn[i].children[0].checked) {
-            var audio = new Audio(allInstruments[i].src);
-            audio.play();
+            new Audio(allInstruments[i].src).play();
         }
-
     }
-
     // If we get to the last child, start over
-    if ( beat < (rows[0].children.length - 2) ) {
+    if ( beat < (rows[0].children.length - 1) ) {
         ++beat;
     } else {
         beat = 1;
