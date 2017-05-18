@@ -1,0 +1,22 @@
+{
+  "name": "drum-kit",
+  "version": "0.0.1",
+  "private": true,
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "gulp"
+  },
+  "dependencies": {
+    "express": "^4.13.3",
+    "body-parser": "^1.13.3",
+    "express-handlebars": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-sass": "^3.0.0",
+    "gulp-nodemon": "^2.0.2",
+    "gulp-livereload": "^3.8.0",
+    "gulp-plumber": "^1.0.0"
+  }
+}

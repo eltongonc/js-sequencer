@@ -1,0 +1,57 @@
+/* Coolors Exported Palette - coolors.co/68708d-748cab-c6b9cd-f1e0c5-f9d6d6 */
+
+/* RGB */
+$grey: rgba(104, 112, 141, 1);
+$blue: rgba(116, 140, 171, 1);
+$color3: rgba(198, 185, 205, 1);
+$color4: rgba(241, 224, 197, 1);
+$color5: rgba(249, 214, 214, 1);
+$white: 	 rgba(255,255,255, 1);
+
+body {
+	background-color: $grey;
+	/*src: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/*/
+	font-family: -apple-system, BlinkMacSystemFont,
+	"Segoe UI", "Roboto", "Oxygen",
+	"Ubuntu", "Cantarell", "Fira Sans",
+	"Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+label,
+.label {
+	display: block;
+	width: 4em;
+	height: 4em;
+	margin: .1em;
+	border-radius: .3em;
+	box-shadow: inset 0 0 17px 4px $color3;
+	background-color: $color3;
+	border: solid $color3;
+}
+
+label.active {
+	border: solid $color5;
+	box-shadow: inset 0 0 17px 4px $color5;
+}
+label.selected {
+	background: $color5;
+	box-shadow: inset 0 0 17px 4px $color5;
+}
+
+div.label {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	text-transform: uppercase;
+	background-color: darken($color3, 10%);
+}
+
+input[type="checkbox"] {
+	display: none;
+}
