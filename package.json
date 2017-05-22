@@ -1,23 +1,40 @@
 {
-  "name": "drum-kit",
-  "version": "0.0.1",
-  "private": true,
-  "main": "app.js",
-  "scripts": {
-    "start": "gulp",
-    "live": "ngrok http 5000"
-  },
-  "dependencies": {
-    "body-parser": "^1.13.3",
-    "express": "^4.13.3",
-    "express-handlebars": "^3.0.0",
-    "ngrok": "^2.2.9"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.0",
-    "gulp-sass": "^3.0.0",
-    "gulp-nodemon": "^2.0.2",
-    "gulp-livereload": "^3.8.0",
-    "gulp-plumber": "^1.0.0"
-  }
+    "name": "drum_kit",
+    "version": "1.5.0",
+    "description": "Drum kit is an interactive sound board. This project was build to illustrate the capabilities of a web browser.",
+    "main": "app.js",
+    "author": "Elton Gonçalves Gomes",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eltongonc/drum_kit.git"
+    },
+    "keywords": [
+        "drum",
+        "machine",
+        "nodejs",
+        "drums",
+        "instruments",
+        "kit"
+    ],
+    "devDependencies": {
+        "gulp": "^3.9.0",
+        "gulp-sass": "^3.0.0",
+        "gulp-nodemon": "^2.0.2",
+        "gulp-livereload": "^3.8.0",
+        "gulp-plumber": "^1.0.0"
+    },
+    "scripts": {
+        "start": "gulp",
+        "live": "ngrok http 5000"
+    },
+    "dependencies": {
+        "express": "^4.13.3",
+        "express-handlebars": "^3.0.0",
+        "ngrok": "^2.2.9"
+    },
+    "bugs": {
+        "url": "https://github.com/eltongonc/drum_kit/issues"
+    },
+    "homepage": "https://github.com/eltongonc/drum_kit#readme",
+    "license": "MIT"
 }

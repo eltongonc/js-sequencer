@@ -1,18 +1,15 @@
 // force remove stuff for test purpose
 // delete window.Audio
-// delete Window.addEventListener
-// delete Document.addEventListener
-// delete Element.addEventListener
 /*******************
 ** General
 ********************/
-var intervalId; // placeholder for the interval
 
-var feedback = {
-    text: ["Not playing", "Playing"],
-    element: document.querySelector('.feedback p')
+var global = {
+    intervalId: null, // placeholder for the interval
+    feedback: ["Not playing", "Playing"],
+    feedbackElement: document.querySelector('.feedback h3'),
+    isMobile: false
 }
-
 /*******************
 ** Feature detection
 ********************/
@@ -20,19 +17,56 @@ var feedback = {
 if ("Audio" in window) {
     console.log("Audio supported");
 }else {
-    document.body.innerHTML = '<h1 class="feedback">Your browser doesn\'t support html audio</h1><p>This is what your missing(...sorta)<p><iframe width="560" height="315" src="https://www.youtube.com/embed/mIvc6uBDGzU" frameborder="0" allowfullscreen></iframe>'
+    document.body.innerHTML =
+    '<section id="pop-up"><h1>Your browser doesn\'t support HTML Audio</h2><div class="container"><h3 class="title">Here is an inspirational video of what can be done with HTML audio elements</h3><video class="content" width="560" height="315" controls="controls"><source src="/video/video.mp4" type="video/mp4" /><p>The source didn\'t load. You should try viewing this page on another web browser. I recommend <a href="https://www.google.nl/chrome/browser/desktop/">Google Chrome</a></p></video></div></section>'
 }
 
-// add addEventListener to Window if it doesn't exists
-// bad practise according to this post: http://perfectionkills.com/whats-wrong-with-extending-the-dom/
-if (!("addEventListener" in window)) {
-    var f = EventTarget.prototype.addEventListener;
-    EventTarget.prototype.addEventListener = function(type, fn, capture) {
-        this.f = f;
-        this.f(type, fn, capture);
-        alert('Added Event Listener: on' + type);
-    }
+// mobile check
+//src: https://stackoverflow.com/questions/6666907/how-to-detect-a-mobile-device-with-javascript
+global.isMobile = detectmob();
+function detectmob() {
+ if( navigator.userAgent.match(/Android/i)
+ || navigator.userAgent.match(/webOS/i)
+ || navigator.userAgent.match(/iPhone/i)
+ || navigator.userAgent.match(/iPad/i)
+ || navigator.userAgent.match(/iPod/i)
+ || navigator.userAgent.match(/BlackBerry/i)
+ || navigator.userAgent.match(/Windows Phone/i)
+ || window.innerWidth < 600){ return true;}
+ else { return false;}
 }
+
+
+// check if orientation is landscape
+if(window.innerHeight > window.innerWidth){
+    var popup = document.createElement('section');
+    popup.id="pop-up";
+    var button = document.createElement('button');
+    button.innerHTML = "Close";
+    button.className="button";
+    var container = document.createElement('div');
+    container.className="container";
+    var phone = document.createElement('img');
+    phone.className = "content"
+    var text = document.createElement('h3');
+    text.innerHTML = '<h3 class="title">This app works better on landscape mode</h3>';
+    phone.src='/img/phone.svg';
+
+    container.appendChild(button)
+    container.appendChild(text)
+    container.appendChild(phone);
+
+    popup.appendChild(container)
+    document.body.appendChild(popup);
+    createEvent(button, 'click', function(e){
+        e.target.parentNode.parentNode.remove()
+    })
+}
+window.addEventListener('resize',function(){
+    if (window.innerWidth > window.innerHeight && document.querySelector("#pop-up")) {
+        document.querySelector("#pop-up").remove()
+    }
+})
 /**************
 ** Instruments
 ***************/
@@ -41,18 +75,36 @@ var instruments = {
     rows: document.getElementsByClassName('row'),
     all: // list of all the instruments and their names. !!ATTENTION: name = html id
     [
-        {id: "crash", src:"/sounds/Perc/Crash Future.wav", icon:"/img/cymbals.svg"},
-        {id: "hiHat", src:"/sounds/Hat/Hats14.wav", icon:"/img/drum-1.svg"},
-        {id: "snare", src:"/sounds/Snare/Snare04.wav", icon:"/img/drum-2.svg"},
-        {id: "rightTom", src:"/sounds/Claps/Claps09.wav", icon:"/img/triangle.svg"},
-        {id: "leftTom", src:"/sounds/Claps/Claps09.wav", icon:"/img/triangle.svg"},
-        {id: "floorTom", src:"/sounds/Claps/Claps09.wav", icon:"/img/triangle.svg"},
-        {id: "kick", src:"/sounds/Kick/Kick14.wav", icon:"/img/drums.svg"}
+        {id: "crash", src:"./sounds/Perc/Crash Future.mp3", icon:"/img/cymbals.svg", audio: new Audio("./sounds/Perc/Crash Future.wav")},
+        {id: "hiHat", src:"./sounds/Hat/Hats14.mp3", icon:"/img/drum-1.svg", audio: new Audio("./sounds/Hat/Hats14.wav")},
+        {id: "snare", src:"./sounds/Snare/Snare04.mp3", icon:"/img/drum-2.svg", audio: new Audio("./sounds/Snare/Snare04.wav")},
+        {id: "rightTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.wav")},
+        {id: "leftTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.wav")},
+        {id: "floorTom", src:"./sounds/Perc/Triangle.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Perc/Triangle.wav")},
+        {id: "kick", src:"./sounds/Kick/Kick14.mp3", icon:"/img/drums.svg", audio: new Audio("./sounds/Kick/Kick14.wav")}
     ],
     init: function(){
         this.appendIcon();
         // init app
         metronome.init();
+        // remove four labels to fix on screen
+        if(global.isMobile === true){
+            // minify instructions
+            var instructions = global.feedbackElement.parentNode.parentNode;
+            instructions.className = 'mobile small';
+            var menuButton = document.createElement('button');
+            menuButton.innerHTML="menu";menuButton.id="menu-toggle"
+            createEvent(menuButton, 'click', function(){
+                instructions.classList.toggle('small');
+            })
+            instructions.insertAdjacentElement('afterbegin',menuButton);
+            for (var i = 0; i < instruments.rows.length; i++) {
+                for (var j = 1; j < 5; j++) {
+                    instruments.rows[i].children[j].remove()
+                }
+            }
+            instruments.rows
+        }
     },
     selected: (function(){
         // whenever you click on a label make it selected;
@@ -89,13 +141,13 @@ var bpm = {
         createEvent('#tempo', "change", updateTempo)
     }()),
     update:function(input){bpm.value = input; return bpm.value}, // beat per minute
-    currentTempo: function(){return 60000 / bpm.value;}
+    currentTempo: function(){return 60000 / bpm.value;},
+    newTempo(){
+        clearInterval(global.intervalId);
+        global.intervalId = setInterval(metronome.updateRows,bpm.currentTempo());
+    }
 }
 
-function newTempo(){
-    clearInterval(intervalId);
-    intervalId = setInterval(metronome.updateRows,bpm.currentTempo());
-}
 
 function updateTempo(e){
     var inputEl = e.target.parentNode.children['tempo'];
@@ -110,7 +162,7 @@ function updateTempo(e){
     // manual input
     if (e.target.id === "tempo") {bpm.update(e.target.value);}
     if(metronome.isPlaying === true) {
-        newTempo();
+        bpm.newTempo();
     }
 }
 
@@ -131,13 +183,17 @@ var metronome = {
         else { bpm.index = 1;}
         return document.querySelectorAll('label:nth-of-type('+bpm.index+')');
     },
-    startStop: function(){
+    startStop: function(e){
         if (metronome.isPlaying === false) {
-            feedback.element.innerHTML = feedback.text[1]
-            intervalId = setInterval(metronome.updateRows,bpm.currentTempo());
+            // play pause toggle
+            // e.target.innerHTML = "Pause";
+            global.feedbackElement.innerHTML = global.feedback[1]
+            global.intervalId = setInterval(metronome.updateRows,bpm.currentTempo());
         }else {
-            feedback.element.innerHTML = feedback.text[0]
-            clearInterval(intervalId);
+            // play pause toggle
+            // e.target.innerHTML = "Play";
+            global.feedbackElement.innerHTML = global.feedback[0]
+            clearInterval(global.intervalId);
         }
         metronome.isPlaying = !metronome.isPlaying;
     },
@@ -150,12 +206,11 @@ var metronome = {
             currentColumn[i].classList.add('active');
             // for every checkbox that is checked play the corresponding Audio
             if (currentColumn[i].children[0].checked) {
-                new Audio(instruments.all[i].src).play();
+                instruments.all[i].audio.play();
             }
         }
     }
 }
-
 
 /*************************
 ** keyboard input
@@ -181,7 +236,7 @@ var controls = {
                 })
             }
             if (event.code == "Space" || event.code == "Enter") {
-                playPause()
+                metronome.startStop()
             }
         });
         window.addEventListener("keyup", function(event){
@@ -197,7 +252,7 @@ var controls = {
 ** helpers
 **********************/
 function createEvent(selector, eventType, eventFunction){
-    var element = document.querySelector(selector);
+    var element = typeof selector === "string"?document.querySelector(selector): selector;
     element.addEventListener(eventType,eventFunction);
     return element;
 }

@@ -1,6 +1,6 @@
-/* Coolors Exported Palette - coolors.co/68708d-748cab-c6b9cd-f1e0c5-f9d6d6 */
-
-/* RGB */
+/**************
+** Colors
+***************/
 $grey: rgba(104, 112, 141, 1);
 $blue: rgba(116, 140, 171, 1);
 $color3: rgba(198, 185, 205, 1);
@@ -8,6 +8,9 @@ $color4: rgba(241, 224, 197, 1);
 $color5: rgba(249, 214, 214, 1);
 $white: 	 rgba(255,255,255, 1);
 
+/**************
+** Gerenal
+***************/
 body {
 	background-color: $grey;
 	/*src: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/*/
@@ -17,16 +20,84 @@ body {
 	"Droid Sans", "Helvetica Neue", sans-serif;
 }
 
+input[type="checkbox"] {
+	opacity: 0;
+	pointer-events: none;
+}
+button, input {
+	// background: transparent;
+	border: .3em solid white;
+	padding: .5em 1em;
+	border-radius: 0.3em;
+	color: $grey;
+	text-transform: uppercase;
+	margin-bottom: .5em;
+}
+
+h1 {
+	color: white;
+	text-align: center;
+	@supports (min-width: 100vw){
+		font-size: 3vw
+	}
+}
+
+/**************
+** Metronome
+***************/
+.metronome {
+	padding: 1em 0;
+	> button:first-child {
+		margin-right: 2em;
+	}
+}
+
+/***************************
+** Instructions & feedback
+***************************/
+.label {
+	color: $white;
+	background-color: darken($color3, 10%);
+	// @supports (display: flex){
+	// 	display: flex;
+	// 	flex-wrap: wrap;
+	// 	align-items: center;
+	// 	justify-content: center;
+	// }
+	img {
+		display: block;
+		left: 0;
+		right: 0;
+		width: 75%;
+		margin: auto;
+	}
+	span {
+		font-size: 0.8em;
+		width: 100%;
+		word-break: break-all;
+		margin: 0;padding: 0;
+		text-transform: capitalize;
+		text-align: center;
+		float: left;
+	}
+}
+
 .row {
-	display: flex;
-	flex-wrap: wrap;
+	background: white;
+	border-radius: 0.3em;
+	margin-bottom: 0.1em;
+	display: inline-block;
+	// @supports (display: flex){
+	// 	display: flex;
+	// 	flex-wrap: wrap;
+	// }
 }
 
 label,
 .label {
 	display: block;
-	width: 4em;
-	height: 4em;
+	width: 4.1em;
+	height: 3em;
 	margin: .1em;
 	border-radius: .3em;
 	box-shadow: inset 0 0 17px 4px $color3;
@@ -42,45 +113,105 @@ label,
 	background: $color5;
 	box-shadow: inset 0 0 17px 4px $color5;
 }
-
-.label {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: center;
-	justify-content: center;
-	color: $white;
-	background-color: darken($color3, 10%);
-
-	img {
-		width: 75%;
-		margin: 0;
-	}
-	span {
-		font-size: 0.8em;
-		width: 100%;
-		word-break: break-all;
-		margin: 0;
-		text-transform: capitalize;
-		text-align: center;
-	}
+.container-sequencer {
+	float: left;
 }
 
-input[type="checkbox"] {
-	opacity: 0;
-}
-
-.metronome {
-	padding: 1em 0;
-	button, input {
+.instructions {
+	width: 20em;
+	color: white;
+	float: right;
+	padding: .3em;
+	border-radius: .3em;
+	transition: .3s;
+	p {
+		margin: 0;
+	}
+	ul {
+		list-style: none;
+		padding: 0;
+	}
+	.metronome {
 		float: left;
-		background: transparent;
-		border: .3em solid white;
-		padding: 1em 2em;
-		border-radius: 1em;
-		color: white;
-		text-transform: uppercase;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		width: 100%;
 	}
-	> button:first-child {
-		margin-right: 2em;
+	.feedback {
+		text-transform: capitalize;
+		clear: both;
+	}
+}
+
+.mobile.instructions {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 13em;
+	background-color: $grey;
+	ul {
+		display: none;
+	}
+	&.small {
+		background-color: transparent;
+		.feedback, .metronome {
+			display: none;
+		}
+	}
+}
+
+#menu-toggle {
+	float: right;
+}
+
+#pop-up {
+	display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: .3em;
+	bottom: 0;
+    z-index: 99;
+    background-color: rgba(0, 0, 0, 0.5);
+    right: 0;
+	.title {
+		color: $grey;
+	}
+	.button {
+		position: absolute;
+		top: 1em;
+		right: 1em;
+	}
+	.container {
+		padding: 2em;
+		border-radius: .3em;
+		background-color: white;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		box-shadow: 0 0 1em lighten(black, 20%);
+
+		.content {
+		    margin: auto;
+		    text-align: center;
+		    display: inherit;
+		}
+		img {
+			height: 10em;
+			animation: 3s infinite tilt ease-in-out;
+		}
+		img::before {
+
+		}
+	}
+}
+
+@keyframes tilt{
+	0%,90%,100%{
+		transform: rotate(0deg);
+	}50%,70%{
+		transform: rotate(90deg);
 	}
 }
