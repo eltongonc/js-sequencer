@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
+<rect x="64" y="56" style="fill:#3F3A34;" width="16" height="432"/>
+<path style="fill:#FFCB57;" d="M96,32C96,18.744,85.256,8,72,8S48,18.744,48,32H24c-8.84,0-16,7.16-16,16v8h128v-8
+	c0-8.84-7.16-16-16-16H96z"/>
+<path style="fill:#3F3A34;" d="M144,64H0V48c0-13.232,10.768-24,24-24h17.008C44.576,10.208,57.12,0,72,0s27.424,10.208,30.992,24
+	H120c13.232,0,24,10.768,24,24V64z M16,48h112c0-4.416-3.592-8-8-8H88v-8c0-8.824-7.176-16-16-16s-16,7.176-16,16v8H24
+	C19.592,40,16,43.584,16,48z"/>
+<rect x="56" y="136" style="fill:#EFE7E4;" width="128" height="112"/>
+<rect x="144" y="136" style="fill:#D8D1D0;" width="40" height="112"/>
+<rect x="56" y="136" style="fill:#FF6E6E;" width="128" height="32"/>
+<rect x="144" y="136" style="fill:#E56565;" width="40" height="32"/>
+<rect x="56" y="216" style="fill:#FF6E6E;" width="128" height="32"/>
+<rect x="144" y="216" style="fill:#E56565;" width="40" height="32"/>
+<g>
+	<path style="fill:#3F3A34;" d="M192,256H48V128h144V256z M64,240h112v-96H64V240z"/>
+	<rect x="160" y="160" style="fill:#3F3A34;" width="24" height="16"/>
+	<rect x="56" y="160" style="fill:#3F3A34;" width="88" height="16"/>
+	<rect x="56" y="208" style="fill:#3F3A34;" width="128" height="16"/>
+	<rect x="416" y="56" style="fill:#3F3A34;" width="16" height="432"/>
+</g>
+<path style="fill:#FFCB57;" d="M448,32c0-13.256-10.744-24-24-24s-24,10.744-24,24h-24c-8.84,0-16,7.16-16,16v8h128v-8
+	c0-8.84-7.16-16-16-16H448z"/>
+<g>
+	<path style="fill:#3F3A34;" d="M496,64H352V48c0-13.232,10.768-24,24-24h17.008C396.576,10.208,409.12,0,424,0
+		s27.424,10.208,30.992,24H472c13.232,0,24,10.768,24,24V64z M368,48h112c0-4.416-3.592-8-8-8h-32v-8c0-8.824-7.176-16-16-16
+		s-16,7.176-16,16v8h-32C371.592,40,368,43.584,368,48z"/>
+	<rect y="480" style="fill:#3F3A34;" width="496" height="16"/>
+	
+		<rect x="355.982" y="421.819" transform="matrix(-0.9363 0.3511 -0.3511 -0.9363 864.8956 755.1577)" style="fill:#3F3A34;" width="15.999" height="68.35"/>
+	
+		<rect x="97.818" y="447.982" transform="matrix(-0.3514 0.9362 -0.9362 -0.3514 605.2763 492.6427)" style="fill:#3F3A34;" width="68.35" height="16"/>
+</g>
+<rect x="312" y="136" style="fill:#EFE7E4;" width="128" height="112"/>
+<rect x="400" y="136" style="fill:#D8D1D0;" width="40" height="112"/>
+<rect x="312" y="136" style="fill:#FF6E6E;" width="128" height="32"/>
+<rect x="400" y="136" style="fill:#E56565;" width="40" height="32"/>
+<rect x="312" y="216" style="fill:#FF6E6E;" width="128" height="32"/>
+<rect x="400" y="216" style="fill:#E56565;" width="40" height="32"/>
+<path style="fill:#3F3A34;" d="M448,256H304V128h144V256z M320,240h112v-96H320V240z"/>
+<circle style="fill:#FF6E6E;" cx="248" cy="336" r="136"/>
+<path style="fill:#E56565;" d="M248,200c-5.424,0-10.744,0.408-16,1.024c67.56,7.928,120,65.288,120,134.976
+	s-52.44,127.048-120,134.976c5.256,0.616,10.576,1.024,16,1.024c75.112,0,136-60.888,136-136S323.112,200,248,200z"/>
+<path style="fill:#3F3A34;" d="M248,480c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,480,248,480z M248,208
+	c-70.576,0-128,57.424-128,128s57.424,128,128,128s128-57.424,128-128S318.576,208,248,208z"/>
+<circle style="fill:#EFE7E4;" cx="248" cy="336" r="104"/>
+<path style="fill:#D8D1D0;" d="M248,232c-5.456,0-10.768,0.544-16,1.352c49.824,7.72,88,50.664,88,102.648
+	s-38.176,94.928-88,102.648c5.232,0.808,10.544,1.352,16,1.352c57.44,0,104-46.56,104-104S305.44,232,248,232z"/>
+<g>
+	<path style="fill:#3F3A34;" d="M248,448c-61.76,0-112-50.24-112-112s50.24-112,112-112s112,50.24,112,112S309.76,448,248,448z
+		 M248,240c-52.936,0-96,43.064-96,96s43.064,96,96,96s96-43.064,96-96S300.936,240,248,240z"/>
+	<rect x="312" y="160" style="fill:#3F3A34;" width="128" height="16"/>
+	<rect x="312" y="208" style="fill:#3F3A34;" width="128" height="16"/>
+	<rect x="168" y="320" style="fill:#3F3A34;" width="160" height="16"/>
+	<rect x="200" y="352" style="fill:#3F3A34;" width="96" height="16"/>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+<g>
+</g>
+</svg>
