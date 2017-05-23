@@ -62,11 +62,7 @@ if(window.innerHeight > window.innerWidth){
         e.target.parentNode.parentNode.remove()
     })
 }
-window.addEventListener('resize',function(){
-    if (window.innerWidth > window.innerHeight && document.querySelector("#pop-up")) {
-        document.querySelector("#pop-up").remove()
-    }
-})
+
 /**************
 ** Instruments
 ***************/
@@ -75,18 +71,19 @@ var instruments = {
     rows: document.getElementsByClassName('row'),
     all: // list of all the instruments and their names. !!ATTENTION: name = html id
     [
-        {id: "crash", src:"./sounds/Perc/Crash Future.mp3", icon:"/img/cymbals.svg", audio: new Audio("./sounds/Perc/Crash Future.wav")},
-        {id: "hiHat", src:"./sounds/Hat/Hats14.mp3", icon:"/img/drum-1.svg", audio: new Audio("./sounds/Hat/Hats14.wav")},
-        {id: "snare", src:"./sounds/Snare/Snare04.mp3", icon:"/img/drum-2.svg", audio: new Audio("./sounds/Snare/Snare04.wav")},
-        {id: "rightTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.wav")},
-        {id: "leftTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.wav")},
-        {id: "floorTom", src:"./sounds/Perc/Triangle.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Perc/Triangle.wav")},
-        {id: "kick", src:"./sounds/Kick/Kick14.mp3", icon:"/img/drums.svg", audio: new Audio("./sounds/Kick/Kick14.wav")}
+        {id: "crash", src:"./sounds/Perc/Crash Future.mp3", icon:"/img/cymbals.svg", audio: new Audio("./sounds/Perc/Crash Future.mp3")},
+        {id: "hiHat", src:"./sounds/Hat/Hats14.mp3", icon:"/img/drum-1.svg", audio: new Audio("./sounds/Hat/Hats14.mp3")},
+        {id: "snare", src:"./sounds/Snare/Snare04.mp3", icon:"/img/drum-2.svg", audio: new Audio("./sounds/Snare/Snare04.mp3")},
+        {id: "rightTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.mp3")},
+        {id: "leftTom", src:"./sounds/Claps/Claps09.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Claps/Claps09.mp3")},
+        {id: "floorTom", src:"./sounds/Perc/Triangle.mp3", icon:"/img/triangle.svg", audio: new Audio("./sounds/Perc/Triangle.mp3")},
+        {id: "kick", src:"./sounds/Kick/Kick14.mp3", icon:"/img/drums.svg", audio: new Audio("./sounds/Kick/Kick14.mp3")}
     ],
     init: function(){
         this.appendIcon();
         // init app
         metronome.init();
+        alert(global.isMobile)
         // remove four labels to fix on screen
         if(global.isMobile === true){
             // minify instructions
@@ -103,7 +100,6 @@ var instruments = {
                     instruments.rows[i].children[j].remove()
                 }
             }
-            instruments.rows
         }
     },
     selected: (function(){
