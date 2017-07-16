@@ -1,5 +1,5 @@
 # Drum kit
-Drum kit is an interactive sound board. This project was build to illustrate the capabilities of a web browser.
+Drum kit is an interactive sound board. This project was build to illustrate the capabilities of a web browser. The project starts as basic html and uses browser technology to add layers of enhancements.
 
 ## What does it do
 It allows users to make beats made out of 8 type of instruments. The app allows users to interact and gives feedback based on a set of feature.
@@ -41,10 +41,10 @@ In order to use the live development server, a local development must be running
 ### HTML Audio tag.
 "*Method of playing sound on webpages (without requiring a plug-in)*" - [Can I Use.com](http://caniuse.com/#search=audio).
 
-While being supported on most browser there are still browsers do not support the Audio tag. Internet Explorer 8 e.g.
+While being supported on most browser there are still browsers that do not support the Audio tag. Internet Explorer 8 being one of them.
 
 #### Detection
-I tried to give Internet Explorer 8 and lower users a similar experience. This was a hard challenge because the audio tag would have to converted in to a flashplayer. A fallback solution would be something like this:
+I tried to give Internet Explorer 8 and lower users a similar experience. This was a hard challenge because the audio tag would have to converted in to a flash player. A fallback solution would be something like this:
 
 ```html
 <audio controls>
@@ -67,7 +67,7 @@ by doing this I noticed that there where still cases where it did not work. So I
     }
 ```
 #### Solution
-As a solution I chose to give the user an embeded Youtube video of sequencer which inspired me to make this project. If this embeded video is not supported, the user will receive a link to a recommended browser to help the web-development community.
+As a solution I chose to give the user an embedded Youtube video of sequencer which inspired me to make this project. If this embedded video is not supported, the user will receive a link to a recommended browser to help the web-development community.
 
 ### Mobile detection.
 In order to make this better for smaller screens a check was written.
@@ -92,14 +92,14 @@ function detectMobile() {
 this check returns either true or false, and lets me do mobile specific functions:
 ```js
 if(detectMobile()){
-    // hide desktop specific features
+    // use mobile functions
 }
 ```
 #### Solution
 I chose to do this check with Javascript instead of CSS, because it gives me much more flexibility. And it also opens doors to new features in the future.
 
 ### Landscape/Portrait mode detection.
-Because of the layout of the app, holding it in portrait mode would make harder to use it, so a check is made to detect wether the mobile devices is being held in Landscape mode.
+Because of the layout of the app, holding it in portrait mode would make harder to use it, so a check is made to detect whether the mobile devices is being held in Landscape mode.
 
 #### Detection
 I tried to give mobile users a similar experience by removing options that are not used in mobile devices:
@@ -124,7 +124,7 @@ Same as the mobile detection, this also helps in Progressive enhancement of this
 
 
 ## Improving the app
-A lot love and though have been put to this app, but there are still a lott that can be added or be done better. Here is an overview of features, wishes and know bugs.
+A lot love and though have been put to this app, but there are still a lot that can be added or be done better. Here is an overview of features, wishes and know bugs.
 
 ### Features - desktop
 - Input via keyboard keys
@@ -144,9 +144,11 @@ A lot love and though have been put to this app, but there are still a lott that
 ### Wishlist
 - [ ] Upload own audio files to play
 - [ ] Mobile touch friendlier
+- [ ] Record your audio
 
 ### Known bugs
-- Some audio files are to large - may not load fast enough
+- Some audio files are too large - may not load fast enough
+
 
 ## How to contribute
 You can help improve this project by sharing your expertise and tips, as well as learn from others. Contributions of all kinds are welcome: reporting issues, updating documentation, fixing bugs, building examples, sharing projects, and any other tips that may me improve my code.
