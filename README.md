@@ -153,12 +153,12 @@ You can help improve this project by sharing your expertise and tips, as well as
 
 
 ## Example
-Here is a link to the [Drum kit](https://eltongonc.github.io/drum_kit/)
+Here is a link to a live demo of the [Drum kit](https://eltongonc.github.io/drum_kit/public/build)
 
 ### Author
 Elton Gonçalves Gomes - checkout more of my work on [github](https://github.com/eltongonc)
 
-## Week log
+<!-- ## Week log
 Week 1 Progressive enhancement
 - [Break the web](https://github.com/eltongonc/browser-technology/Funda)
 
@@ -168,7 +168,7 @@ Week 2 Feature detection
 - **CSS**[Scroll snap properties](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/scroll-snap)
 - **CSS**[Sticky positioning](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/sticky-position)
 - **JS**[JS Drag and drop](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/drag-and-drop)
-- **JS**[Font loading](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/font-loading)
+- **JS**[Font loading](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/font-loading) -->
 
 ***
 ### Sources
