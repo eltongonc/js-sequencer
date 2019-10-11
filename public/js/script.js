@@ -14,7 +14,7 @@ var global = {
 ********************/
 // check if the browser supports audio
 if ("Audio" in window) {
-    console.log("Audio supported");
+    console.log("Audio supported test");
 }else {
     document.body.innerHTML =
     '<section id="pop-up"><h1>Your browser doesn\'t support HTML Audio</h2><div class="container"><h3 class="title">Here is an inspirational video of what can be done with HTML audio elements</h3><video class="content" width="560" height="315" controls="controls"><source src="/video/video.mp4" type="video/mp4" /><p>The source didn\'t load. You should try viewing this page on another web browser. I recommend <a href="https://www.google.nl/chrome/browser/desktop/">Google Chrome</a></p></video></div></section>'

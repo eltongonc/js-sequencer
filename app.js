@@ -1,26 +1,25 @@
-var express = require('express');
-var path = require('path');
-var exphbs  = require('express-handlebars');
+const express = require('express');
+const path = require('path');
+const livereload = require('livereload');
 
-var routes = require('./routes/index');
+const server = livereload.createServer();
+const app = express();
 
-var app = express();
+const port =  process.env.PORT || 5000;
+const env = process.env.NODE_ENV || 'development';
+const publicDir = path.join(__dirname, 'public');
 
-var port =  process.env.PORT || 5000;
-var env = process.env.NODE_ENV || 'development';
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 
-// view engine setup
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-  partialsDir: ['views/partials/']
-}));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
+server.watch(publicDir);
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
+// view engine setup
+app.use(express.static(publicDir));
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './public/index.html'));
+});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,7 +31,7 @@ app.use(function(req, res, next) {
 /// error handlers
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.send({
         message: err.message,
         error: err,
         title: 'error'
