@@ -20,28 +20,30 @@ aside {
 	.instructions {
 		opacity: 0;
 		transition: opacity .3s ease-in-out;
-		width: 20em;
+		width: 26em;
 		color: white;
 		float: right;
 		padding: .3em;
 		border-radius: .3em;
+
 		p {
 			margin: 0;
+			color: $dark-grey;
 		}
 		ul {
 			list-style: none;
 			padding: 0;
-		}
-		.metronome {
-			float: left;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-			width: 100%;
-		}
-		.feedback {
-			text-transform: capitalize;
-			clear: both;
+			color: $white;
+			font-size: 1.2rem;
+			li {
+				margin-bottom: 1rem;
+				span {
+					margin-right: .5rem;
+					padding: .2rem .5em;
+					opacity: 0.8;
+					background-color: $dark-grey;
+				}
+			}
 		}
 	}
 	

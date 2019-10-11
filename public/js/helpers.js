@@ -36,8 +36,8 @@ function updateTempo(e){
 
 var global = {
     intervalId: null, // placeholder for the interval
-    feedback: ["Not playing", "Playing"],
-    feedbackElement: document.querySelector('.feedback h3'),
+    feedback: ["Play", "Pause"],
+    feedbackElement: document.getElementById('play-pause'),
     isMobile: false
 }
 

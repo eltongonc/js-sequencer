@@ -20,7 +20,7 @@
         "start": "concurrently 'npm:watch:server' 'npm:watch:scss' 'npm:build:js'",
         "build:js": "watchify ./public/js/script.js -o ./public/build/script.js",
         "watch:server": "nodemon app.js",
-        "watch:scss": "node-sass -w ./public/scss/style.scss -o ./public/build/"
+        "watch:scss": "node-sass -w ./public/scss/ -o ./public/build/"
     },
     "dependencies": {
         "browserify": "^16.5.0",

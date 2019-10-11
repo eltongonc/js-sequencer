@@ -12,19 +12,23 @@ main {
 body {
   overflow: hidden;
   /*src: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/*/
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
 
 input[type="checkbox"] {
   opacity: 0;
   pointer-events: none; }
 
 button, input {
-  border: .3em solid white;
+  border: none;
   padding: .5em 1em;
   border-radius: 0.3em;
-  color: #68708d;
+  color: white;
   text-transform: uppercase;
-  margin-bottom: .5em; }
+  margin-bottom: .5em;
+  background-color: #252525;
+  cursor: pointer;
+  box-shadow: 0 0 .3rem black;
+  outline: none; }
 
 h1 {
   color: white;
@@ -32,6 +36,11 @@ h1 {
   @supports (min-width: 100vw) {
     h1 {
       font-size: 3vw; } }
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
 
 .metronome {
   padding: 1em 0; }
@@ -49,19 +58,34 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   z-index: 0; }
   .container-sequencer .sequencer {
     background-color: #252525;
-    width: 75%;
-    height: 99%; }
+    box-shadow: 0 0 2rem black;
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 2rem;
+    border-radius: 5px;
+    transform: translateX(0);
+    transition: transform .3s ease-in-out; }
     .container-sequencer .sequencer .row {
-      background: white;
       border-radius: 0.3em;
-      margin-bottom: 0.1em;
-      display: inline-block; }
+      display: flex;
+      flex-direction: column; }
       .container-sequencer .sequencer .row .label {
         color: white;
-        background-color: #ae9bb8; }
+        position: absolute;
+        top: -5rem;
+        background-color: transparent;
+        box-shadow: none;
+        display: block;
+        width: 4.1em;
+        height: 3em;
+        margin: .5em;
+        opacity: 0;
+        transition: opacity .3s ease-in-out; }
         .container-sequencer .sequencer .row .label img {
           display: block;
           left: 0;
@@ -77,22 +101,28 @@ h1 {
           text-transform: capitalize;
           text-align: center;
           float: left; }
-      .container-sequencer .sequencer .row label,
-      .container-sequencer .sequencer .row .label {
+      .container-sequencer .sequencer .row label {
         display: block;
         width: 4.1em;
         height: 3em;
-        margin: .1em;
-        border-radius: .3em;
-        box-shadow: inset 0 0 17px 4px #c6b9cd;
-        background-color: #c6b9cd;
-        border: solid #c6b9cd; }
+        margin: .5em;
+        box-shadow: inset 0 0 17px 4px #C0C1C5, 0 0 2rem black;
+        background-color: #C0C1C5;
+        border-radius: 3px;
+        transition: box-shadow .3s ease-in-out; }
+        .container-sequencer .sequencer .row label:hover {
+          box-shadow: inset 0 0 17px 4px #B6FA9C;
+          cursor: pointer; }
       .container-sequencer .sequencer .row .active {
         border: solid #f9d6d6;
-        box-shadow: inset 0 0 17px 4px #f9d6d6; }
+        box-shadow: inset 0 0 17px 4px #B6FA9C; }
       .container-sequencer .sequencer .row .selected {
         background: #f9d6d6;
-        box-shadow: inset 0 0 17px 4px #f9d6d6; }
+        box-shadow: inset 0 0 20px 14px #30AFBD; }
+    .container-sequencer .sequencer.aside-open {
+      transform: translateX(-20%); }
+      .container-sequencer .sequencer.aside-open .row .label {
+        opacity: 1; }
 
 aside {
   position: absolute;
@@ -109,37 +139,52 @@ aside {
   aside .instructions {
     opacity: 0;
     transition: opacity .3s ease-in-out;
-    width: 20em;
+    width: 26em;
     color: white;
     float: right;
     padding: .3em;
     border-radius: .3em; }
     aside .instructions p {
-      margin: 0; }
+      margin: 0;
+      color: #252525; }
     aside .instructions ul {
       list-style: none;
-      padding: 0; }
-    aside .instructions .metronome {
-      float: left;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 100%; }
-    aside .instructions .feedback {
-      text-transform: capitalize;
-      clear: both; }
+      padding: 0;
+      color: white;
+      font-size: 1.2rem; }
+      aside .instructions ul li {
+        margin-bottom: 1rem; }
+        aside .instructions ul li span {
+          margin-right: .5rem;
+          padding: .2rem .5em;
+          opacity: 0.8;
+          background-color: #252525; }
   aside .mobile.instructions {
     position: fixed;
     top: 0;
     right: 0;
     width: 13em;
-    background-color: #68708d; }
+    background-color: #C0C1C5; }
     aside .mobile.instructions ul {
       display: none; }
     aside .mobile.instructions.small {
       background-color: transparent; }
       aside .mobile.instructions.small .feedback, aside .mobile.instructions.small .metronome {
         display: none; }
+
+.controls {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between; }
+  .controls .button-play {
+    margin-right: 1rem; }
+  .controls p {
+    margin-bottom: .2rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center; }
+  .controls input {
+    text-align: center; }
 
 /***************************
 ** Instructions & feedback
@@ -158,7 +203,7 @@ aside {
   background-color: rgba(0, 0, 0, 0.5);
   right: 0; }
   #pop-up .title {
-    color: #68708d; }
+    color: #C0C1C5; }
   #pop-up .button {
     position: absolute;
     top: 1em;
