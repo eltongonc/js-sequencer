@@ -1,0 +1,187 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; }
+
+html,
+body,
+main {
+  height: 100%;
+  width: 100%; }
+
+body {
+  overflow: hidden;
+  /*src: https://www.smashingmagazine.com/2015/11/using-system-ui-fonts-practical-guide/*/
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; }
+
+input[type="checkbox"] {
+  opacity: 0;
+  pointer-events: none; }
+
+button, input {
+  border: .3em solid white;
+  padding: .5em 1em;
+  border-radius: 0.3em;
+  color: #68708d;
+  text-transform: uppercase;
+  margin-bottom: .5em; }
+
+h1 {
+  color: white;
+  text-align: center; }
+  @supports (min-width: 100vw) {
+    h1 {
+      font-size: 3vw; } }
+
+.metronome {
+  padding: 1em 0; }
+  .metronome > button:first-child {
+    margin-right: 2em; }
+
+.container-sequencer {
+  background-color: #30AFBD;
+  padding: 2rem;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0; }
+  .container-sequencer .sequencer {
+    background-color: #252525;
+    width: 75%;
+    height: 99%; }
+    .container-sequencer .sequencer .row {
+      background: white;
+      border-radius: 0.3em;
+      margin-bottom: 0.1em;
+      display: inline-block; }
+      .container-sequencer .sequencer .row .label {
+        color: white;
+        background-color: #ae9bb8; }
+        .container-sequencer .sequencer .row .label img {
+          display: block;
+          left: 0;
+          right: 0;
+          width: 75%;
+          margin: auto; }
+        .container-sequencer .sequencer .row .label span {
+          font-size: 0.8em;
+          width: 100%;
+          word-break: break-all;
+          margin: 0;
+          padding: 0;
+          text-transform: capitalize;
+          text-align: center;
+          float: left; }
+      .container-sequencer .sequencer .row label,
+      .container-sequencer .sequencer .row .label {
+        display: block;
+        width: 4.1em;
+        height: 3em;
+        margin: .1em;
+        border-radius: .3em;
+        box-shadow: inset 0 0 17px 4px #c6b9cd;
+        background-color: #c6b9cd;
+        border: solid #c6b9cd; }
+      .container-sequencer .sequencer .row .active {
+        border: solid #f9d6d6;
+        box-shadow: inset 0 0 17px 4px #f9d6d6; }
+      .container-sequencer .sequencer .row .selected {
+        background: #f9d6d6;
+        box-shadow: inset 0 0 17px 4px #f9d6d6; }
+
+aside {
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  transform: translateX(calc(85%));
+  transition: transform .3s ease-in-out; }
+  aside button {
+    margin-right: 1rem; }
+  aside.open {
+    transform: translateX(0); }
+    aside.open .instructions {
+      opacity: 1; }
+  aside .instructions {
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    width: 20em;
+    color: white;
+    float: right;
+    padding: .3em;
+    border-radius: .3em; }
+    aside .instructions p {
+      margin: 0; }
+    aside .instructions ul {
+      list-style: none;
+      padding: 0; }
+    aside .instructions .metronome {
+      float: left;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 100%; }
+    aside .instructions .feedback {
+      text-transform: capitalize;
+      clear: both; }
+  aside .mobile.instructions {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 13em;
+    background-color: #68708d; }
+    aside .mobile.instructions ul {
+      display: none; }
+    aside .mobile.instructions.small {
+      background-color: transparent; }
+      aside .mobile.instructions.small .feedback, aside .mobile.instructions.small .metronome {
+        display: none; }
+
+/***************************
+** Instructions & feedback
+***************************/
+#menu-toggle {
+  float: right; }
+
+#pop-up {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: .3em;
+  bottom: 0;
+  z-index: 99;
+  background-color: rgba(0, 0, 0, 0.5);
+  right: 0; }
+  #pop-up .title {
+    color: #68708d; }
+  #pop-up .button {
+    position: absolute;
+    top: 1em;
+    right: 1em; }
+  #pop-up .container {
+    padding: 2em;
+    border-radius: .3em;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 1em #333333; }
+    #pop-up .container .content {
+      margin: auto;
+      text-align: center;
+      display: inherit; }
+    #pop-up .container img {
+      height: 10em;
+      animation: 3s infinite tilt ease-in-out; }
+
+@keyframes tilt {
+  0%, 90%, 100% {
+    transform: rotate(0deg); }
+  50%, 70% {
+    transform: rotate(90deg); } }

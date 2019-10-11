@@ -1,0 +1,64 @@
+aside {
+	position: absolute;
+	right: 0;
+	top: 1rem;
+	transform: translateX(calc(85%));
+	transition: transform .3s ease-in-out;
+
+	button {
+		margin-right: 1rem;
+	}
+
+	&.open {
+		transform: translateX(0);
+		
+		.instructions {
+			opacity: 1;
+		}
+	};
+
+	.instructions {
+		opacity: 0;
+		transition: opacity .3s ease-in-out;
+		width: 20em;
+		color: white;
+		float: right;
+		padding: .3em;
+		border-radius: .3em;
+		p {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+		.metronome {
+			float: left;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			width: 100%;
+		}
+		.feedback {
+			text-transform: capitalize;
+			clear: both;
+		}
+	}
+	
+	.mobile.instructions {
+		position: fixed;
+		top: 0;
+		right: 0;
+		width: 13em;
+		background-color: $grey;
+		ul {
+			display: none;
+		}
+		&.small {
+			background-color: transparent;
+			.feedback, .metronome {
+				display: none;
+			}
+		}
+	}
+}
