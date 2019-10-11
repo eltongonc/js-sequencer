@@ -17,18 +17,21 @@
         "kit"
     ],
     "scripts": {
-        "start": "concurrently 'npm:watch:server' 'npm:watch:scss'",
+        "start": "concurrently 'npm:watch:server' 'npm:watch:scss' 'npm:build:js'",
+        "build:js": "watchify ./public/js/script.js -o ./public/build/script.js",
         "watch:server": "nodemon app.js",
-        "watch:scss": "node-sass -w ./public/scss/ -o ./public/css/"
+        "watch:scss": "node-sass -w ./public/scss/style.scss -o ./public/build/"
     },
     "dependencies": {
+        "browserify": "^16.5.0",
         "concurrently": "^5.0.0",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",
         "livereload": "^0.8.2",
         "ngrok": "^2.2.9",
         "node-sass": "^4.12.0",
-        "nodemon": "^1.19.3"
+        "nodemon": "^1.19.3",
+        "watchify": "^3.11.1"
     },
     "bugs": {
         "url": "https://github.com/eltongonc/drum_kit/issues"

@@ -6,11 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>Drum kit</title>
 
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/build/style.css">
 </head>
 <body>
-	<h1>Drum Kit</h1>
-	<section id="container-sequencer" class="container-sequencer">
+	<main>
+		<h1>Drum Kit</h1>
+		<section id="container-sequencer" class="container-sequencer">
 			<div id="sequencer" class="sequencer">
 				<!-- crash -->
 				<div id="crash" class="row">
@@ -113,33 +114,37 @@
 
 			</div>
 		</section>
-	<section class="instructions">
-		<div class="feedback">
-			<h3>not playing</h3>
-		</div>
-		<!-- bpm control -->
-		<div class="metronome">
-			<button id="play-pause" class="btn" aria-label="Play">play</button>
-			<div class="controls">
-				<p>Speed/bpm</p>
-				<button id="minus" class="btn" aria-label="Decrease bpm">-</button>
-				<input id="tempo" type="number" min="100" max="300" size="3" value="150">
-				<button id="plus" class="btn" aria-label="Iecrease bpm">+</button>
+	</main>
+	<aside>
+		<button id="i-toggle">i</button>
+		<section class="instructions">
+			<div class="feedback">
+				<h3>not playing</h3>
 			</div>
-		</div>
-		<ul>
-			<li>Hold shift to alter rows</li>
-			<li>Hit enter or Spacebar to start a metronome</li>
-			<li>Press one of these keys to toggle them:</li>
-			<li>1,2,3,4,5,6,7,8</li>
-			<li>Q,W,E,R,T,Y,U,I</li>
-			<li>A,S,D,F,G,H,J,K</li>
-			<li>Z,X,C,V,B,N,M,les than character <</li>
-		</ul>
-	</section>
+			<!-- bpm control -->
+			<div class="metronome">
+				<button id="play-pause" class="btn" aria-label="Play">play</button>
+				<div class="controls">
+					<p>Speed/bpm</p>
+					<button id="minus" class="btn" aria-label="Decrease bpm">-</button>
+					<input id="tempo" type="number" min="100" max="300" size="3" value="150">
+					<button id="plus" class="btn" aria-label="Iecrease bpm">+</button>
+				</div>
+			</div>
+			<ul>
+				<li>Hold shift to alter rows</li>
+				<li>Hit enter or Spacebar to start a metronome</li>
+				<li>Press one of these keys to toggle them:</li>
+				<li>1,2,3,4,5,6,7,8</li>
+				<li>Q,W,E,R,T,Y,U,I</li>
+				<li>A,S,D,F,G,H,J,K</li>
+				<li>Z,X,C,V,B,N,M,les than character <</li>
+			</ul>
+		</section>
+	</aside>
 
 
-	<script src="js/script.js"></script>
+	<script src="/build/script.js"></script>
 	<script>
 		document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] +
 		':35729/livereload.js?snipver=1"></' + 'script>')
