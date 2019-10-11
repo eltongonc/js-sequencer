@@ -20,13 +20,17 @@ global.isMobile = detectmob();
 if(window.innerHeight > window.innerWidth){
     var popup = document.createElement('section');
     popup.id="pop-up";
+
     var button = document.createElement('button');
     button.innerHTML = "Close";
     button.className="button";
+
     var container = document.createElement('div');
     container.className="container";
+
     var phone = document.createElement('img');
     phone.className = "content"
+    
     var text = document.createElement('h3');
     text.innerHTML = '<h3 class="title">This app works better on landscape mode</h3>';
     phone.src='/img/phone.svg';

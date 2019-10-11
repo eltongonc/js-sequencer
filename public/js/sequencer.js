@@ -52,6 +52,7 @@ const sequencer = {
     init() {
         // play pause toggle
         createEvent('#play-pause', "click", this.startStop);
+        instruments.init();
         bpm.init();
         controls.init(this);
     },

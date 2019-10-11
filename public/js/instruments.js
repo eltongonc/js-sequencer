@@ -17,8 +17,8 @@ var instruments = {
     selected() {
         // whenever you click on a label make it selected;
         window.addEventListener('click', function(e){
+            console.log(e.target);
             if (e.target.localName === "label" ) {
-                console.log(e.target.localName);
                 
                 e.target.classList.toggle('selected');
             }

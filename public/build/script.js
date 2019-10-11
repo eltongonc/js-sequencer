@@ -88,13 +88,17 @@ global.isMobile = detectmob();
 if(window.innerHeight > window.innerWidth){
     var popup = document.createElement('section');
     popup.id="pop-up";
+
     var button = document.createElement('button');
     button.innerHTML = "Close";
     button.className="button";
+
     var container = document.createElement('div');
     container.className="container";
+
     var phone = document.createElement('img');
     phone.className = "content"
+    
     var text = document.createElement('h3');
     text.innerHTML = '<h3 class="title">This app works better on landscape mode</h3>';
     phone.src='/img/phone.svg';
@@ -204,8 +208,8 @@ var instruments = {
     selected() {
         // whenever you click on a label make it selected;
         window.addEventListener('click', function(e){
+            console.log(e.target);
             if (e.target.localName === "label" ) {
-                console.log(e.target.localName);
                 
                 e.target.classList.toggle('selected');
             }
@@ -313,6 +317,7 @@ const sequencer = {
     init() {
         // play pause toggle
         createEvent('#play-pause', "click", this.startStop);
+        instruments.init();
         bpm.init();
         controls.init(this);
     },
