@@ -1,7 +1,10 @@
 const instruments = require('./instruments');
+const { createEvent } = require('./helpers');
 
 const controls = {
     init(sequencer) {
+        createEvent('#play-pause', "click", sequencer.startStop);
+        
         window.addEventListener("keydown", (event) => {
             event.preventDefault()
             var id = "key-"+event.key;

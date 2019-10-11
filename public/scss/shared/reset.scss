@@ -26,12 +26,16 @@ input[type="checkbox"] {
 }
 button, input {
 	// background: transparent;
-	border: .3em solid white;
+	border: none;
 	padding: .5em 1em;
 	border-radius: 0.3em;
-	color: $grey;
+	color: $white;
 	text-transform: uppercase;
 	margin-bottom: .5em;
+	background-color: $dark-grey;
+	cursor: pointer;
+	box-shadow: 0 0 .3rem black;
+	outline: none;
 }
 
 h1 {
@@ -40,4 +44,11 @@ h1 {
 	@supports (min-width: 100vw){
 		font-size: 3vw
 	}
+}
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }

@@ -9,32 +9,38 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	flex-direction: column;
 	z-index: 0;
 
 	.sequencer {
 		background-color: $dark-grey;
-		width: 75%;
-		height: 99%;
+		box-shadow: 0 0 2rem black;
+		display: inline-flex;
+		align-items: flex-end;
+		justify-content: center;
+		padding: 2rem;
+		border-radius: 5px;
+		transform: translateX(0);
+		transition: transform .3s ease-in-out;
 
 		.row {
-			background: white;
 			border-radius: 0.3em;
-			margin-bottom: 0.1em;
-			display: inline-block;
-			// @supports (display: flex){
-			// 	display: flex;
-			// 	flex-wrap: wrap;
-			// }
+			display: flex;
+			flex-direction: column;
 
 			.label {
 				color: $white;
-				background-color: darken($color3, 10%);
-				// @supports (display: flex){
-				// 	display: flex;
-				// 	flex-wrap: wrap;
-				// 	align-items: center;
-				// 	justify-content: center;
-				// }
+				position: absolute;
+				top: -5rem;
+				background-color: transparent;
+				box-shadow: none;
+				display: block;
+				width: 4.1em;
+				height: 3em;
+				margin: .5em;
+				opacity: 0;
+				transition: opacity .3s ease-in-out;
+				
 				img {
 					display: block;
 					left: 0;
@@ -46,7 +52,8 @@
 					font-size: 0.8em;
 					width: 100%;
 					word-break: break-all;
-					margin: 0;padding: 0;
+					margin: 0;
+					padding: 0;
 					text-transform: capitalize;
 					text-align: center;
 					float: left;
@@ -54,26 +61,40 @@
 
 			}
 
-			label,
-			.label {
+			label {
 				display: block;
 				width: 4.1em;
 				height: 3em;
-				margin: .1em;
-				border-radius: .3em;
-				box-shadow: inset 0 0 17px 4px $color3;
-				background-color: $color3;
-				border: solid $color3;
+				margin: .5em;
+				box-shadow: inset 0 0 17px 4px $grey,
+							0 0 2rem black;
+				background-color: $grey;
+				border-radius: 3px;
+				transition: box-shadow .3s ease-in-out;
+
+				&:hover {
+					box-shadow: inset 0 0 17px 4px $green;
+					cursor: pointer;
+				}
 			}
 
 			.active {
 				border: solid $color5;
-				box-shadow: inset 0 0 17px 4px $color5;
+				box-shadow: inset 0 0 17px 4px $green;
 			}
 
 			.selected {
 				background: $color5;
-				box-shadow: inset 0 0 17px 4px $color5;
+				box-shadow: inset 0 0 20px 14px $blue;
+			}
+		}
+
+		&.aside-open {
+			transform: translateX(-20%);
+			.row {
+				.label {
+					opacity: 1;
+				}
 			}
 		}
 	}

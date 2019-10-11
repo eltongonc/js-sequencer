@@ -27,9 +27,12 @@ module.exports = bpm;
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"./helpers":4}],2:[function(require,module,exports){
 const instruments = require('./instruments');
+const { createEvent } = require('./helpers');
 
 const controls = {
     init(sequencer) {
+        createEvent('#play-pause', "click", sequencer.startStop);
+        
         window.addEventListener("keydown", (event) => {
             event.preventDefault()
             var id = "key-"+event.key;
@@ -64,7 +67,7 @@ const controls = {
 };
 
 module.exports = controls;
-},{"./instruments":6}],3:[function(require,module,exports){
+},{"./helpers":4,"./instruments":6}],3:[function(require,module,exports){
 (function (global){
 const { detectmob } = require('./helpers');
 
@@ -153,8 +156,8 @@ function updateTempo(e){
 
 var global = {
     intervalId: null, // placeholder for the interval
-    feedback: ["Not playing", "Playing"],
-    feedbackElement: document.querySelector('.feedback h3'),
+    feedback: ["Play", "Pause"],
+    feedbackElement: document.getElementById('play-pause'),
     isMobile: false
 }
 
@@ -170,13 +173,21 @@ const { createEvent } = require('./helpers');
 const instructions = {
 	isOpen: false,
 	container: document.querySelector('aside'),
+	sequencer: document.getElementById('sequencer'),
 	toggleBtn: document.getElementById('i-toggle'),
 
 	toggle() {
 		this.isOpen = !this.isOpen;
 		console.log(this);
 		
-		this.container.className = this.isOpen ? 'open' : '';
+		
+		if (this.isOpen) {
+			this.container.classList.add('open');
+			this.sequencer.classList.add('aside-open');
+		} else {
+			this.sequencer.classList.remove('aside-open');
+			this.container.classList.remove('open');
+		}
 	},
 
 	init() {
@@ -316,7 +327,7 @@ const sequencer = {
 
     init() {
         // play pause toggle
-        createEvent('#play-pause', "click", this.startStop);
+        
         instruments.init();
         bpm.init();
         controls.init(this);
