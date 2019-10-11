@@ -17,18 +17,19 @@
         "kit"
     ],
     "scripts": {
-        "start": "gulp",
-        "live": "ngrok http 5000"
+        "start": "concurrently 'npm:watch:server' 'npm:watch:scss' 'npm:livereload'",
+        "watch:server": "nodemon app.js",
+        "watch:scss": "node-sass -w ./public/scss/ -o ./public/css/",
+        "livereload": "livereload -w 1000"
     },
     "dependencies": {
+        "concurrently": "^5.0.0",
         "express": "^4.17.1",
         "express-handlebars": "^3.1.0",
-        "gulp": "^4.0.2",
-        "gulp-livereload": "^4.0.2",
-        "gulp-nodemon": "^2.4.2",
-        "gulp-plumber": "^1.2.1",
-        "gulp-sass": "^4.0.2",
-        "ngrok": "^2.2.9"
+        "livereload": "^0.8.2",
+        "ngrok": "^2.2.9",
+        "node-sass": "^4.12.0",
+        "nodemon": "^1.19.3"
     },
     "bugs": {
         "url": "https://github.com/eltongonc/drum_kit/issues"

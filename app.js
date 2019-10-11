@@ -1,8 +1,5 @@
 var express = require('express');
 var path = require('path');
-var exphbs  = require('express-handlebars');
-
-var routes = require('./routes/index');
 
 var app = express();
 
@@ -12,15 +9,11 @@ app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 
 // view engine setup
-app.engine('handlebars', exphbs({
-  defaultLayout: 'main',
-  partialsDir: ['views/partials/']
-}));
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'handlebars');
-
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', routes);
+
+app.get('/', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './public/index.html'));
+});
 
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -32,7 +25,7 @@ app.use(function(req, res, next) {
 /// error handlers
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.send({
         message: err.message,
         error: err,
         title: 'error'
