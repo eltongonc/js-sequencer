@@ -17,10 +17,9 @@
         "kit"
     ],
     "scripts": {
-        "start": "concurrently 'npm:watch:server' 'npm:watch:scss' 'npm:livereload'",
+        "start": "concurrently 'npm:watch:server' 'npm:watch:scss'",
         "watch:server": "nodemon app.js",
-        "watch:scss": "node-sass -w ./public/scss/ -o ./public/css/",
-        "livereload": "livereload -w 1000"
+        "watch:scss": "node-sass -w ./public/scss/ -o ./public/css/"
     },
     "dependencies": {
         "concurrently": "^5.0.0",

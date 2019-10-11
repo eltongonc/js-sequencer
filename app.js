@@ -1,15 +1,21 @@
-var express = require('express');
-var path = require('path');
+const express = require('express');
+const path = require('path');
+const livereload = require('livereload');
 
-var app = express();
+const server = livereload.createServer();
+const app = express();
 
-var port =  process.env.PORT || 5000;
-var env = process.env.NODE_ENV || 'development';
+const port =  process.env.PORT || 5000;
+const env = process.env.NODE_ENV || 'development';
+const publicDir = path.join(__dirname, 'public');
+
 app.locals.ENV = env;
 app.locals.ENV_DEVELOPMENT = env == 'development';
 
+server.watch(publicDir);
+
 // view engine setup
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(publicDir));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, './public/index.html'));
