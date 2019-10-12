@@ -1,4 +1,4 @@
-const { detectmob } = require('./helpers');
+const { detectMobile, createEvent } = require('./helpers');
 
 /*******************
 ** Feature detection
@@ -13,7 +13,7 @@ if ("Audio" in window) {
 
 // mobile check
 //src: https://stackoverflow.com/questions/6666907/how-to-detect-a-mobile-device-with-javascript
-global.isMobile = detectmob();
+global.isMobile = detectMobile();
 
 
 // check if orientation is landscape
@@ -22,7 +22,7 @@ if(window.innerHeight > window.innerWidth){
     popup.id="pop-up";
 
     var button = document.createElement('button');
-    button.innerHTML = "Close";
+    button.innerHTML = "x";
     button.className="button";
 
     var container = document.createElement('div');
@@ -30,18 +30,23 @@ if(window.innerHeight > window.innerWidth){
 
     var phone = document.createElement('img');
     phone.className = "content"
+    phone.src='/img/phone.svg';
     
     var text = document.createElement('h3');
-    text.innerHTML = '<h3 class="title">This app works better on landscape mode</h3>';
-    phone.src='/img/phone.svg';
+    // text.innerHTML = '<h3 class="title">This app works better on landscape mode</h3>';
+    text.innerHTML = '<h3 class="title">This app hasn\'t been fully optimized for mobile yet!</h3>';
 
     container.appendChild(button)
     container.appendChild(text)
     container.appendChild(phone);
 
-    popup.appendChild(container)
+    popup.appendChild(container);
+
     document.body.appendChild(popup);
+
     createEvent(button, 'click', function(e){
+        console.log(e.target);
+        
         e.target.parentNode.parentNode.remove()
     })
 }

@@ -22,7 +22,7 @@ button, input {
   border: none;
   padding: .5em 1em;
   border-radius: 0.3em;
-  color: white;
+  color: #B6FA9C;
   text-transform: uppercase;
   margin-bottom: .5em;
   background-color: #252525;
@@ -123,6 +123,9 @@ input[type=number]::-webkit-outer-spin-button {
       transform: translateX(-20%); }
       .container-sequencer .sequencer.aside-open .row .label {
         opacity: 1; }
+  @media (max-width: 30rem) {
+    .container-sequencer .sequencer {
+      transform: scale(0.8); } }
 
 aside {
   position: absolute;
@@ -131,19 +134,25 @@ aside {
   transform: translateX(calc(85%));
   transition: transform .3s ease-in-out; }
   aside button {
-    margin-right: 1rem; }
+    margin-right: 1rem;
+    margin-top: .5rem; }
   aside.open {
     transform: translateX(0); }
     aside.open .instructions {
-      opacity: 1; }
+      opacity: 1;
+      background-color: #30AFBD; }
   aside .instructions {
     opacity: 0;
     transition: opacity .3s ease-in-out;
     width: 26em;
     color: white;
     float: right;
-    padding: .3em;
-    border-radius: .3em; }
+    border-radius: .3em;
+    padding: 0 .2rem; }
+    aside .instructions h1 {
+      text-align: left;
+      margin-bottom: 2rem;
+      line-height: 1; }
     aside .instructions p {
       margin: 0;
       color: #252525; }
@@ -178,6 +187,9 @@ aside {
   justify-content: space-between; }
   .controls .button-play {
     margin-right: 1rem; }
+    .controls .button-play.playing {
+      color: #B6FA9C;
+      animation: colorPulse 2s infinite ease-in-out; }
   .controls p {
     margin-bottom: .2rem;
     text-transform: uppercase;
@@ -185,6 +197,12 @@ aside {
     text-align: center; }
   .controls input {
     text-align: center; }
+
+@keyframes colorPulse {
+  0%, 100% {
+    color: white; }
+  50% {
+    color: #B6FA9C; } }
 
 /***************************
 ** Instructions & feedback
@@ -209,7 +227,7 @@ aside {
     top: 1em;
     right: 1em; }
   #pop-up .container {
-    padding: 2em;
+    padding: 3rem 2rem;
     border-radius: .3em;
     background-color: white;
     position: absolute;

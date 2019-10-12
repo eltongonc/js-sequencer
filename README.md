@@ -75,7 +75,7 @@ In order to make this better for smaller screens a check was written.
 #### Detection
 I tried to give mobile users a similar experience by removing options that are not used in mobile devices:
 ```js
-function detectMobile() {
+function detectMobileile() {
     // on onoe of the mobile os browsers
  if( navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)
@@ -91,7 +91,7 @@ function detectMobile() {
 ```
 this check returns either true or false, and lets me do mobile specific functions:
 ```js
-if(detectMobile()){
+if(detectMobileile()){
     // use mobile functions
 }
 ```

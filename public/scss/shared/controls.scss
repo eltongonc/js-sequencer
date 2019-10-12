@@ -5,6 +5,10 @@
 
 	.button-play {
 		margin-right: 1rem;
+		&.playing {
+			color: $green;
+			animation: colorPulse 2s infinite ease-in-out;
+		}
 	}
 
 	p {
@@ -16,5 +20,15 @@
 
 	input {
 		text-align: center;
+	}
+}
+
+
+@keyframes colorPulse {
+	0%, 100% {
+		color: $white;
+	}
+	50% {
+		color: $green;
 	}
 }
