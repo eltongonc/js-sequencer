@@ -18,6 +18,7 @@
     ],
     "scripts": {
         "start": "concurrently 'npm:watch:server' 'npm:watch:scss' 'npm:build:js'",
+        "prod": "node app.js",
         "build:js": "watchify ./public/js/script.js -o ./public/build/script.js",
         "watch:server": "nodemon app.js",
         "watch:scss": "node-sass -w ./public/scss/ -o ./public/build/"
