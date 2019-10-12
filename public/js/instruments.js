@@ -1,10 +1,10 @@
-const { createEvent } = require('./helpers');
+const { createEvent, global } = require('./helpers');
 
 var instruments = {
     labels: document.querySelectorAll('label'),
     rows: document.getElementsByClassName('row'),
-    all: // list of all the instruments and their names. !!ATTENTION: name = html id
-    [
+    // list of all the instruments and their names. !!ATTENTION: name = html id
+    all: [
         { id: "crash", src:"./sounds/Perc/Crash Future.mp3", icon:"../img/cymbals.svg", audio: new Audio("../sounds/Perc/Crash Future.mp3") },
         { id: "hiHat", src:"./sounds/Hat/Hats14.mp3", icon:"../img/drum-1.svg", audio: new Audio("../sounds/Hat/Hats14.mp3") },
         { id: "snare", src:"./sounds/Snare/Snare04.mp3", icon:"../img/drum-2.svg", audio: new Audio("../sounds/Snare/Snare04.mp3") },
@@ -14,12 +14,10 @@ var instruments = {
         { id: "kick", src:"./sounds/Kick/Kick14.mp3", icon:"../img/drums.svg", audio: new Audio("../sounds/Kick/Kick14.mp3") }
     ],
 
+    // whenever you click on a label make it selected;
     selected() {
-        // whenever you click on a label make it selected;
         window.addEventListener('click', function(e){
-            console.log(e.target);
             if (e.target.localName === "label" ) {
-                
                 e.target.classList.toggle('selected');
             }
         })
@@ -37,7 +35,7 @@ var instruments = {
         this.selected();
 
         // remove four labels to fix on screen
-        if(window.isMobile === true){
+        if(global.isMobile === true){
             // minify instructions
             var instructions = global.feedbackElement.parentNode.parentNode;
             instructions.className = 'mobile small';

@@ -98,4 +98,10 @@
 			}
 		}
 	}
+
+	@media (max-width: 30rem) {
+		.sequencer {
+			transform: scale(.8);
+		}
+	}
 }

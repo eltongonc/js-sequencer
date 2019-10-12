@@ -7,6 +7,7 @@ aside {
 
 	button {
 		margin-right: 1rem;
+		margin-top: .5rem;
 	}
 
 	&.open {
@@ -14,6 +15,7 @@ aside {
 		
 		.instructions {
 			opacity: 1;
+			background-color: $blue;
 		}
 	};
 
@@ -23,8 +25,14 @@ aside {
 		width: 26em;
 		color: white;
 		float: right;
-		padding: .3em;
 		border-radius: .3em;
+		padding: 0 .2rem;
+
+		h1 {
+			text-align: left;
+			margin-bottom: 2rem;
+			line-height: 1;
+		}
 
 		p {
 			margin: 0;

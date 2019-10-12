@@ -8,8 +8,6 @@ const instructions = {
 
 	toggle() {
 		this.isOpen = !this.isOpen;
-		console.log(this);
-		
 		
 		if (this.isOpen) {
 			this.container.classList.add('open');
@@ -21,9 +19,7 @@ const instructions = {
 	},
 
 	init() {
-		this.toggle = this.toggle.bind(this);
-		
-		createEvent('#i-toggle', 'click', this.toggle);
+		createEvent('#i-toggle', 'click', this.toggle.bind(this));
 	}
 }
 
