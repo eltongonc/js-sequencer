@@ -155,7 +155,7 @@ You can help improve this project by sharing your expertise and tips, as well as
 
 
 ## Example
-Here is a link to a live demo of the [Drum kit](https://eltongonc.github.io/drum_kit/public/build)
+Here is a link to a live demo of the [Drum kit](https://js-sequencer.herokuapp.com/)
 
 ### Author
 Elton Gonçalves Gomes - checkout more of my work on [github](https://github.com/eltongonc)
