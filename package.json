@@ -1,12 +1,12 @@
 {
-    "name": "drum_kit",
+    "name": "js-sequencer",
     "version": "1.5.0",
-    "description": "Drum kit is an interactive sound board. This project was build to illustrate the capabilities of a web browser.",
+    "description": "JS Sequencer is an interactive sound board. This project was build to illustrate the capabilities of a web browser.",
     "main": "app.js",
     "author": "Elton Gonçalves Gomes",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/eltongonc/drum_kit.git"
+        "url": "git+https://github.com/eltongonc/js-sequencer.git"
     },
     "keywords": [
         "drum",
@@ -34,8 +34,8 @@
         "watchify": "^3.11.1"
     },
     "bugs": {
-        "url": "https://github.com/eltongonc/drum_kit/issues"
+        "url": "https://github.com/eltongonc/js-sequencer/issues"
     },
-    "homepage": "https://github.com/eltongonc/drum_kit#readme",
+    "homepage": "https://github.com/eltongonc/js-sequencer#readme",
     "license": "MIT"
 }

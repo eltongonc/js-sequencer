@@ -1,5 +1,5 @@
-# Drum kit
-Drum kit is an interactive sound board. This project was build to illustrate the capabilities of a web browser. The project starts as basic html and uses browser technology to add layers of enhancements.
+# JS Sequencer
+JS Sequencer is an interactive sound board. This project was build to illustrate the capabilities of a web browser. The project starts as basic html and uses browser technology to add layers of enhancements.
 
 ## What does it do
 It allows users to make beats made out of 8 type of instruments. The app allows users to interact and gives feedback based on a set of feature.
@@ -17,7 +17,7 @@ In order to run the application you'll need to have a version of Node and NPM in
 
 First clone this repo with:
 ```txt
-$ git clone https://github.com/eltongonc/drum_kit.git
+$ git clone https://github.com/eltongonc/js-sequencer.git
 ```
 Install the dependencies:
 ```txt
@@ -160,17 +160,6 @@ Here is a link to a live demo of the [Drum kit](https://eltongonc.github.io/drum
 ### Author
 Elton Gonçalves Gomes - checkout more of my work on [github](https://github.com/eltongonc)
 
-<!-- ## Week log
-Week 1 Progressive enhancement
-- [Break the web](https://github.com/eltongonc/browser-technology/Funda)
-
-Week 2 Feature detection
-- **HTML**[HTML5 Detail tag](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/detail-tag)
-- **HTML**[Web P](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/webp)
-- **CSS**[Scroll snap properties](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/scroll-snap)
-- **CSS**[Sticky positioning](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/sticky-position)
-- **JS**[JS Drag and drop](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/drag-and-drop)
-- **JS**[Font loading](https://github.com/eltongonc/browser-technology/tree/master/feature_detection/font-loading) -->
 
 ***
 ### Sources
